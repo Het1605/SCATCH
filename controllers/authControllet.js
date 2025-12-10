@@ -24,7 +24,8 @@ module.exports.registerUser = async function (req, res) {
                     let token = generateToken(user);   
 
                    res.cookie("token",token);
-                   res.send("user Creaed successfully")
+                   res.redirect
+                   ("/shop")
                 }
             });
         });
@@ -47,7 +48,7 @@ module.exports.loginUser = async function (req,res,) {
         if(result) {
            let token =  generateToken(user)
            res.cookie = ("token", token)
-           res.send("you can login")
+           res.redirect("/shop")
         } 
         else{
            req.flash("error", "Email or Password incorrect");
